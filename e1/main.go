@@ -21,7 +21,7 @@ func main() {
 }
 
 func performTask(ctx context.Context) {
-	ctxPerform, cancel := context.WithTimeout(ctx, 10*time.Second)
+	ctxPerform, cancel := context.WithTimeout(ctx, 2*time.Second)
 	defer cancel()
 
 	go performTask11(ctxPerform)
@@ -60,7 +60,7 @@ func performTask3(ctx context.Context) {
 }
 
 func performTask11(ctx context.Context) {
-	ticker := time.NewTicker(2 * time.Second)
+	ticker := time.NewTicker(1 * time.Second)
 	for {
 		select {
 		case <-ctx.Done():
@@ -73,7 +73,7 @@ func performTask11(ctx context.Context) {
 }
 
 func performTask12(ctx context.Context) {
-	ticker := time.NewTicker(2 * time.Second)
+	ticker := time.NewTicker(1 * time.Second)
 	for {
 		select {
 		case <-ctx.Done():
@@ -86,7 +86,7 @@ func performTask12(ctx context.Context) {
 }
 
 func performTask13(ctx context.Context) {
-	ticker := time.NewTicker(2 * time.Second)
+	ticker := time.NewTicker(1 * time.Second)
 	for {
 		select {
 		case <-ctx.Done():
