@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	ctx, cancel := context.WithTimeout(context.Background(), 1*time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), 4*time.Second)
 	defer cancel()
 
 	status := performTask(ctx)
@@ -19,6 +19,7 @@ func performTask(ctx context.Context) bool {
 	done := make(chan bool)
 
 	go func() {
+		// Run Task
 		time.Sleep(2 * time.Second)
 		fmt.Println("Run Task")
 
